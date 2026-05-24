@@ -2,25 +2,55 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #003366;
+
+  /* Brand palette */
+  --primary:       #003366;  /* deep navy */
+  --primary-dark:  #002244;  /* navy hover */
+  --primary-mid:   #003d7a;  /* medium navy */
+  --primary-deep:  #001d40;  /* darkest navy */
+  --tertiary:      #E6EEF5;  /* light blue-gray bg */
+  --tertiary-dark: #dce8f5;  /* slightly deeper */
+  --neutral:       #64748B;  /* body text */
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-background:    var(--background);
+  --color-foreground:    var(--foreground);
+  --color-primary:       var(--primary);
+  --color-primary-dark:  var(--primary-dark);
+  --color-primary-mid:   var(--primary-mid);
+  --color-tertiary:      var(--tertiary);
+  --color-neutral:       var(--neutral);
+  --font-sans: var(--font-inter);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), 'Inter', Arial, Helvetica, sans-serif;
+}
+
+/* ── Marquee animations ───────────────────────────────────────── */
+@keyframes marquee-ltr {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes marquee-rtl {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.animate-marquee-ltr {
+  animation: marquee-ltr 40s linear infinite;
+}
+
+.animate-marquee-rtl {
+  animation: marquee-rtl 34s linear infinite;
+}
+
+.marquee-track:hover .animate-marquee-ltr,
+.marquee-track:hover .animate-marquee-rtl {
+  animation-play-state: paused;
 }
