@@ -96,10 +96,11 @@ export function ScaleIn({ children, className = '', delay = 0 }: ChildProps) {
 export function SlideLeft({ children, className = '', delay = 0 }: ChildProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, x: -44 }}
+      initial={{ opacity: 0, x: -24 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={vp}
       transition={{ duration: 0.65, ease, delay }}
+      style={{ willChange: 'transform' }}
       className={className}
     >
       {children}
@@ -111,10 +112,11 @@ export function SlideLeft({ children, className = '', delay = 0 }: ChildProps) {
 export function SlideRight({ children, className = '', delay = 0 }: ChildProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, x: 44 }}
+      initial={{ opacity: 0, x: 24 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={vp}
       transition={{ duration: 0.65, ease, delay }}
+      style={{ willChange: 'transform' }}
       className={className}
     >
       {children}
